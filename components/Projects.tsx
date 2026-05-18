@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { FiGithub, FiExternalLink } from 'react-icons/fi'
-import { FaShieldAlt, FaCloud, FaGamepad, FaBook, FaTrophy } from 'react-icons/fa'
+import { FaShieldAlt, FaCloud, FaGamepad, FaBook, FaCar, FaNewspaper, FaTrophy } from 'react-icons/fa'
 import type { IconType } from 'react-icons'
 
 interface Project {
@@ -52,15 +52,51 @@ const projects: Project[] = [
     github: 'https://github.com/Jayyy-Fths/Feb-Project',
     live:   '#',
   },
+  {
+    num:    '05',
+    icon:   FaCar,
+    title:  'Racer Man V3',
+    desc:   'Browser-based racing game built in JavaScript. Third iteration of the Racer Man series with improved mechanics and visuals.',
+    stack:  ['JavaScript', 'HTML', 'CSS'],
+    github: 'https://github.com/Jayyy-Fths/Racer-Man-V3',
+    live:   '#',
+  },
+  {
+    num:    '06',
+    icon:   FaGamepad,
+    title:  'Snaker',
+    desc:   'Classic snake game recreated in the browser with smooth controls, score tracking, and increasing difficulty.',
+    stack:  ['JavaScript', 'HTML', 'CSS'],
+    github: 'https://github.com/Jayyy-Fths/snaker',
+    live:   '#',
+  },
+  {
+    num:    '07',
+    icon:   FaTrophy,
+    title:  'Hackathon Project',
+    desc:   'First version of a hackathon project — built under a time crunch with a focus on delivering a functional product fast.',
+    stack:  ['HTML', 'CSS', 'JavaScript'],
+    github: 'https://github.com/Jayyy-Fths/Hackaton_Project',
+    live:   '#',
+  },
+  {
+    num:    '08',
+    icon:   FaNewspaper,
+    title:  'Columbine Media Coverage Analysis',
+    desc:   'Research site analyzing how the media covered the Columbine shooting — examining perpetrator focus, criticism of glamorization, and its lasting influence.',
+    stack:  ['HTML', 'CSS'],
+    github: 'https://github.com/Jayyy-Fths/Columbine-School-Shooting-Media-Coverage-Analysis',
+    live:   '#',
+  },
 ]
 
-function Tag({ label, variant = 'purple' }: { label: string; variant?: 'purple' | 'cyan' }) {
+function Tag({ label, variant = 'warm' }: { label: string; variant?: 'warm' | 'orange' }) {
   return (
     <span
       className={`font-mono text-[0.68rem] px-2.5 py-0.5 rounded
-        ${variant === 'cyan'
-          ? 'bg-neon-cyan/10 text-neon-cyan border border-neon-cyan/20'
-          : 'bg-neon-purple/10 text-neon-purple border border-neon-purple/20'
+        ${variant === 'orange'
+          ? 'bg-accent/10 text-accent border border-accent/20'
+          : 'bg-accent-warm/10 text-accent-warm border border-accent-warm/20'
         }`}
     >
       {label}
@@ -77,42 +113,36 @@ function MockBrowser() {
         <span className="w-3 h-3 rounded-full bg-yellow-400/70" />
         <span className="w-3 h-3 rounded-full bg-green-400/70" />
         <div className="flex-1 mx-3 h-5 rounded bg-white/5 flex items-center px-2">
-          <span className="font-mono text-[0.58rem] text-slate-600">nexaflow.app/dashboard</span>
+          <span className="font-mono text-[0.58rem] text-slate-600">fank.app/dashboard</span>
         </div>
       </div>
       {/* Code content */}
       <div className="p-5 font-mono text-[0.7rem] leading-7 bg-black/30">
         <div>
-          <span className="text-neon-purple">const</span>{' '}
-          <span className="text-neon-cyan">nexaflow</span>
+          <span className="text-accent-violet">const</span>{' '}
+          <span className="text-accent">fank</span>
           <span className="text-slate-500"> = {'{'}</span>
         </div>
         <div className="ml-4">
-          <span className="text-slate-500">users:</span>{' '}
-          <span className="text-amber-400">12_450</span>
+          <span className="text-slate-500">team:</span>{' '}
+          <span className="text-accent-warm">4</span>
           <span className="text-slate-500">,</span>
         </div>
         <div className="ml-4">
-          <span className="text-slate-500">rooms:</span>{' '}
-          <span className="text-amber-400">3_200</span>
+          <span className="text-slate-500">timeLimit:</span>{' '}
+          <span className="text-accent-warm">&quot;24h&quot;</span>
           <span className="text-slate-500">,</span>
         </div>
         <div className="ml-4">
-          <span className="text-slate-500">latency:</span>{' '}
-          <span className="text-neon-emerald">&quot;&lt;50ms&quot;</span>
+          <span className="text-slate-500">result:</span>{' '}
+          <span className="text-accent-emerald">&quot;Category Winner&quot;</span>
           <span className="text-slate-500">,</span>
         </div>
         <div className="ml-4">
-          <span className="text-slate-500">uptime:</span>{' '}
-          <span className="text-neon-emerald">&quot;99.97%&quot;</span>
+          <span className="text-slate-500">stack:</span>{' '}
+          <span className="text-accent-emerald">&quot;HTML/CSS/JS&quot;</span>
         </div>
         <div className="text-slate-500">{'}'}</div>
-        <div className="mt-2">
-          <span className="text-neon-purple">socket</span>
-          <span className="text-slate-400">.on(</span>
-          <span className="text-neon-emerald">&apos;message&apos;</span>
-          <span className="text-slate-400">, live)</span>
-        </div>
       </div>
     </div>
   )
@@ -122,9 +152,9 @@ function ProjectCard({ project, delay }: { project: Project; delay: number }) {
   const Icon = project.icon
   return (
     <motion.div
-      className="group relative bg-bg-secondary/60 backdrop-blur-md border border-white/8 rounded-2xl p-7
-                 hover:-translate-y-2 hover:border-neon-cyan/25
-                 hover:shadow-[0_24px_50px_rgba(0,0,0,0.45),0_0_30px_rgba(0,245,255,0.05)]
+      className="group relative bg-bg-secondary/60 backdrop-blur-md border border-white/[0.07] rounded-2xl p-7
+                 hover:-translate-y-2 hover:border-accent/25
+                 hover:shadow-[0_24px_50px_rgba(0,0,0,0.45),0_0_30px_rgba(249,115,22,0.08)]
                  transition-all duration-300 overflow-hidden"
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
@@ -132,7 +162,7 @@ function ProjectCard({ project, delay }: { project: Project; delay: number }) {
       transition={{ duration: 0.6, delay }}
     >
       {/* Animated top bar */}
-      <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-neon-cyan to-neon-purple
+      <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-accent to-accent-warm
                       scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
 
       {/* Large background number */}
@@ -145,23 +175,23 @@ function ProjectCard({ project, delay }: { project: Project; delay: number }) {
 
       <div className="flex justify-between items-start mb-5">
         <div className="w-11 h-11 flex items-center justify-center rounded-xl
-                        bg-neon-cyan/10 border border-neon-cyan/20 text-neon-cyan text-lg
-                        group-hover:bg-neon-cyan/15 group-hover:scale-110 transition-all duration-300">
+                        bg-accent/10 border border-accent/20 text-accent text-lg
+                        group-hover:bg-accent/15 group-hover:scale-110 transition-all duration-300">
           <Icon />
         </div>
         <div className="flex gap-3 text-slate-600">
           <a href={project.github} target="_blank" rel="noopener noreferrer"
-             className="hover:text-neon-cyan hover:-translate-y-0.5 transition-all duration-200">
+             className="hover:text-accent hover:-translate-y-0.5 transition-all duration-200">
             <FiGithub size={17} />
           </a>
           <a href={project.live} target="_blank" rel="noopener noreferrer"
-             className="hover:text-neon-cyan hover:-translate-y-0.5 transition-all duration-200">
+             className="hover:text-accent hover:-translate-y-0.5 transition-all duration-200">
             <FiExternalLink size={17} />
           </a>
         </div>
       </div>
 
-      <h3 className="text-lg font-semibold text-slate-100 mb-2 group-hover:text-neon-cyan/90 transition-colors duration-300">
+      <h3 className="text-lg font-semibold text-slate-100 mb-2 group-hover:text-accent/90 transition-colors duration-300">
         {project.title}
       </h3>
       <p className="text-sm text-slate-500 leading-relaxed mb-5">{project.desc}</p>
@@ -186,18 +216,18 @@ export default function Projects() {
           viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.6 }}
         >
-          <p className="font-mono text-xs text-neon-cyan tracking-[0.3em] uppercase mb-2">// 03. Projects</p>
+          <p className="font-mono text-xs text-accent tracking-[0.3em] uppercase mb-2">// 03. Projects</p>
           <h2 className="text-4xl md:text-5xl font-bold text-slate-100">
-            What I&apos;ve <span className="text-neon-cyan">Built</span>
+            What I&apos;ve <span className="text-accent">Built</span>
           </h2>
-          <div className="w-14 h-0.5 bg-gradient-to-r from-neon-cyan to-neon-purple mx-auto mt-4 rounded" />
+          <div className="w-14 h-0.5 bg-gradient-to-r from-accent to-accent-warm mx-auto mt-4 rounded" />
         </motion.div>
 
         {/* Featured project */}
         <motion.div
-          className="group relative rounded-2xl overflow-hidden border border-white/8
-                     hover:border-neon-cyan/25 mb-8
-                     hover:shadow-[0_24px_60px_rgba(0,0,0,0.55),0_0_40px_rgba(0,245,255,0.05)]
+          className="group relative rounded-2xl overflow-hidden border border-white/[0.07]
+                     hover:border-accent/25 mb-8
+                     hover:shadow-[0_24px_60px_rgba(0,0,0,0.55),0_0_40px_rgba(249,115,22,0.08)]
                      transition-all duration-300"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -205,7 +235,7 @@ export default function Projects() {
           transition={{ duration: 0.7 }}
         >
           {/* Animated top border */}
-          <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-neon-cyan to-neon-purple
+          <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-accent to-accent-warm
                           scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left z-10" />
 
           <div className="grid md:grid-cols-[1.15fr_1fr]">
@@ -214,9 +244,9 @@ export default function Projects() {
               className="hidden md:flex items-center justify-center min-h-[300px] border-r border-white/6"
               style={{
                 background: `
-                  radial-gradient(ellipse at 30% 50%, rgba(0,245,255,0.07) 0%, transparent 60%),
-                  radial-gradient(ellipse at 80% 20%, rgba(168,85,247,0.07) 0%, transparent 60%),
-                  #0a0e1a
+                  radial-gradient(ellipse at 30% 50%, rgba(249,115,22,0.07) 0%, transparent 60%),
+                  radial-gradient(ellipse at 80% 20%, rgba(139,92,246,0.07) 0%, transparent 60%),
+                  #161210
                 `,
               }}
             >
@@ -226,8 +256,8 @@ export default function Projects() {
             {/* Content panel */}
             <div className="bg-bg-secondary/70 backdrop-blur-md p-8 md:p-10 flex flex-col justify-center">
               <div className="inline-flex items-center gap-2 mb-3">
-                <span className="w-1.5 h-1.5 rounded-full bg-neon-cyan" />
-                <p className="font-mono text-[0.68rem] text-neon-cyan tracking-[0.2em] uppercase">
+                <span className="w-1.5 h-1.5 rounded-full bg-accent" />
+                <p className="font-mono text-[0.68rem] text-accent tracking-[0.2em] uppercase">
                   Featured Project — Competition Winner
                 </p>
               </div>
@@ -240,14 +270,14 @@ export default function Projects() {
               </p>
               <div className="flex flex-wrap gap-2 mb-6">
                 {['HTML', 'CSS', 'JavaScript'].map(t => (
-                  <Tag key={t} label={t} variant="cyan" />
+                  <Tag key={t} label={t} variant="orange" />
                 ))}
               </div>
               <div className="flex gap-5 text-sm text-slate-500">
-                <a href="https://github.com/Jayyy-Fths/Fank" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 hover:text-neon-cyan transition-colors duration-200">
+                <a href="https://github.com/Jayyy-Fths/Fank" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 hover:text-accent transition-colors duration-200">
                   <FiGithub size={15} /> Source
                 </a>
-                <a href="#" className="flex items-center gap-1.5 hover:text-neon-cyan transition-colors duration-200">
+                <a href="#" className="flex items-center gap-1.5 hover:text-accent transition-colors duration-200">
                   <FiExternalLink size={15} /> Live Demo
                 </a>
               </div>

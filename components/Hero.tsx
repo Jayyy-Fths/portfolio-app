@@ -79,15 +79,15 @@ export default function Hero() {
     <section
       ref={containerRef}
       id="hero"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-bg-primary"
     >
       {/* CSS grid background */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
           backgroundImage: `
-            linear-gradient(rgba(0,245,255,0.025) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(0,245,255,0.025) 1px, transparent 1px)
+            linear-gradient(rgba(249,115,22,0.025) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(249,115,22,0.025) 1px, transparent 1px)
           `,
           backgroundSize: '70px 70px',
         }}
@@ -97,16 +97,16 @@ export default function Hero() {
       <motion.div
         style={{ x: g1x, y: g1y }}
         className="absolute -top-1/3 -right-1/4 w-[700px] h-[700px] rounded-full
-                   bg-neon-cyan/[0.045] blur-[130px] pointer-events-none"
+                   bg-accent/[0.045] blur-[130px] pointer-events-none"
       />
       <motion.div
         style={{ x: g2x, y: g2y }}
         className="absolute -bottom-1/3 -left-1/4 w-[650px] h-[650px] rounded-full
-                   bg-neon-purple/[0.045] blur-[120px] pointer-events-none"
+                   bg-accent-violet/[0.045] blur-[120px] pointer-events-none"
       />
 
       {/* Vignette */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_75%_75%_at_50%_50%,transparent_35%,#020408_100%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_75%_75%_at_50%_50%,transparent_35%,var(--color-bg-primary)_100%)]" />
 
       {/* Main content */}
       <div className="relative z-10 text-center max-w-5xl px-6">
@@ -114,23 +114,23 @@ export default function Hero() {
         {/* Availability badge */}
         <motion.div
           className="inline-flex items-center gap-2.5 px-4 py-1.5 mb-8 rounded-full
-                     border border-neon-emerald/25 bg-neon-emerald/8 cursor-default"
+                     border border-accent-emerald/25 bg-accent-emerald/8 cursor-default"
           initial={{ opacity: 0, y: -16, scale: 0.92 }}
           animate={{ opacity: 1, y: 0,   scale: 1    }}
           transition={{ duration: 0.6, type: 'spring', stiffness: 200 }}
         >
           <span className="relative flex h-2 w-2 shrink-0">
-            <span className="animate-ping-slow absolute inset-0 rounded-full bg-neon-emerald" />
-            <span className="relative rounded-full h-2 w-2 bg-neon-emerald" />
+            <span className="animate-ping-slow absolute inset-0 rounded-full bg-accent-emerald" />
+            <span className="relative rounded-full h-2 w-2 bg-accent-emerald" />
           </span>
-          <span className="font-mono text-[0.68rem] text-neon-emerald tracking-[0.18em] uppercase">
+          <span className="font-mono text-[0.68rem] text-accent-emerald tracking-[0.18em] uppercase">
             Available for new projects
           </span>
         </motion.div>
 
         {/* Role label */}
         <motion.p
-          className="font-mono text-sm text-neon-cyan/70 tracking-[0.28em] uppercase mb-5"
+          className="font-mono text-sm text-accent/70 tracking-[0.28em] uppercase mb-5"
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0  }}
           transition={{ duration: 0.7, delay: 0.2 }}
@@ -138,7 +138,7 @@ export default function Hero() {
           Full-Stack Developer &amp; Builder
         </motion.p>
 
-        {/* Name — the hero of the hero */}
+        {/* Name */}
         <motion.h1
           className="leading-[0.87] mb-7"
           initial={{ opacity: 0, y: 50 }}
@@ -149,8 +149,8 @@ export default function Hero() {
             Jayden N. B.
           </span>
           <span
-            className="block text-[clamp(3.6rem,10.5vw,9.5rem)] font-black tracking-[-0.03em] text-neon-cyan"
-            style={{ textShadow: '0 0 80px rgba(0,245,255,0.28), 0 0 160px rgba(0,245,255,0.1)' }}
+            className="block text-[clamp(3.6rem,10.5vw,9.5rem)] font-black tracking-[-0.03em] text-accent"
+            style={{ textShadow: '0 0 80px rgba(249,115,22,0.28), 0 0 160px rgba(249,115,22,0.1)' }}
           >
             Azore
           </span>
@@ -164,8 +164,8 @@ export default function Hero() {
           transition={{ duration: 0.7, delay: 0.65 }}
         >
           I build{' '}
-          <span className="font-mono text-neon-cyan">{typed}</span>
-          <span className="inline-block w-0.5 h-[1.1em] bg-neon-cyan align-text-bottom ml-0.5 animate-blink" />
+          <span className="font-mono text-accent">{typed}</span>
+          <span className="inline-block w-0.5 h-[1.1em] bg-accent align-text-bottom ml-0.5 animate-blink" />
         </motion.p>
 
         {/* CTAs */}
@@ -178,8 +178,8 @@ export default function Hero() {
           <a
             href="#projects"
             className="relative px-8 py-3.5 rounded-lg font-bold text-sm overflow-hidden
-                       bg-neon-cyan text-bg-primary
-                       hover:-translate-y-0.5 hover:shadow-[0_8px_40px_rgba(0,245,255,0.55)]
+                       bg-accent text-white
+                       hover:-translate-y-0.5 hover:shadow-[0_8px_40px_rgba(249,115,22,0.55)]
                        transition-all duration-200"
           >
             View My Work
@@ -188,8 +188,8 @@ export default function Hero() {
             href="#contact"
             className="px-8 py-3.5 rounded-lg font-medium text-sm
                        border border-white/12 text-slate-300
-                       hover:border-neon-cyan/40 hover:text-neon-cyan hover:bg-neon-cyan/5
-                       hover:-translate-y-0.5 hover:shadow-[0_0_30px_rgba(0,245,255,0.1)]
+                       hover:border-accent/40 hover:text-accent hover:bg-accent/5
+                       hover:-translate-y-0.5 hover:shadow-[0_0_30px_rgba(249,115,22,0.1)]
                        transition-all duration-200"
           >
             Get In Touch
@@ -205,15 +205,17 @@ export default function Hero() {
         >
           <span className="block w-14 h-px bg-gradient-to-r from-transparent to-white/10" />
           {[
-            { Icon: FiGithub,   label: 'GitHub'   },
-            { Icon: FiLinkedin, label: 'LinkedIn' },
-            { Icon: FiTwitter,  label: 'Twitter'  },
-          ].map(({ Icon, label }) => (
+            { Icon: FiGithub,   label: 'GitHub',   href: 'https://github.com/Jayyy-Fths' },
+            { Icon: FiLinkedin, label: 'LinkedIn',  href: 'https://www.linkedin.com/in/jayden-azore-55a22b40b/' },
+            { Icon: FiTwitter,  label: 'Twitter',   href: '#' },
+          ].map(({ Icon, label, href }) => (
             <a
               key={label}
-              href="#"
+              href={href}
+              target={href !== '#' ? '_blank' : undefined}
+              rel={href !== '#' ? 'noopener noreferrer' : undefined}
               aria-label={label}
-              className="text-slate-600 hover:text-neon-cyan hover:-translate-y-0.5 transition-all duration-200"
+              className="text-slate-600 hover:text-accent hover:-translate-y-0.5 transition-all duration-200"
             >
               <Icon size={18} />
             </a>
@@ -230,7 +232,7 @@ export default function Hero() {
         transition={{ delay: 1.4 }}
       >
         <span className="font-mono text-[0.65rem] text-slate-600 tracking-[0.2em] uppercase">Scroll</span>
-        <div className="w-px h-12 bg-gradient-to-b from-neon-cyan to-transparent animate-scroll-line" />
+        <div className="w-px h-12 bg-gradient-to-b from-accent to-transparent animate-scroll-line" />
       </motion.div>
     </section>
   )

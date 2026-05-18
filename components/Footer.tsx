@@ -4,7 +4,7 @@ export default function Footer() {
       <div className="max-w-5xl mx-auto px-6 flex flex-col items-center gap-3">
         <a
           href="#hero"
-          className="font-mono text-lg font-bold text-neon-cyan/80 hover:text-neon-cyan
+          className="font-mono text-lg font-bold text-accent/80 hover:text-accent
                      tracking-wide transition-colors duration-200"
         >
           &lt;<span className="text-slate-300">Jayden</span> /&gt;
@@ -14,10 +14,10 @@ export default function Footer() {
           <span className="text-slate-500">Jayden N. B. Azore</span>
           {' · '}
           <a
-            href="mailto:jayden@azore.dev"
-            className="text-slate-500 hover:text-neon-cyan transition-colors duration-200"
+            href="mailto:jaydenazore918@gmail.com"
+            className="text-slate-500 hover:text-accent transition-colors duration-200"
           >
-            jayden@azore.dev
+            jaydenazore918@gmail.com
           </a>
         </p>
         <p className="font-mono text-[0.6rem] text-slate-800 tracking-widest uppercase">

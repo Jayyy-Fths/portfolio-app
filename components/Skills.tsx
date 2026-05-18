@@ -48,19 +48,19 @@ export default function Skills() {
           viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.6 }}
         >
-          <p className="font-mono text-xs text-neon-cyan tracking-[0.3em] uppercase mb-2">// 02. Skills</p>
+          <p className="font-mono text-xs text-accent tracking-[0.3em] uppercase mb-2">// 02. Skills</p>
           <h2 className="text-4xl md:text-5xl font-bold text-slate-100">
-            Tech <span className="text-neon-cyan">Stack</span>
+            Tech <span className="text-accent">Stack</span>
           </h2>
-          <div className="w-14 h-0.5 bg-gradient-to-r from-neon-cyan to-neon-purple mx-auto mt-4 rounded" />
+          <div className="w-14 h-0.5 bg-gradient-to-r from-accent to-accent-warm mx-auto mt-4 rounded" />
         </motion.div>
 
         <div className="grid md:grid-cols-3 gap-6">
           {categories.map((cat, ci) => (
             <motion.div
               key={cat.title}
-              className="relative bg-bg-secondary/60 backdrop-blur-md border border-white/8 rounded-2xl p-7
-                         hover:border-neon-cyan/20 hover:shadow-[0_0_40px_rgba(0,245,255,0.04)]
+              className="relative bg-bg-secondary/60 backdrop-blur-md border border-white/[0.07] rounded-2xl p-7
+                         hover:border-accent/20 hover:shadow-[0_0_40px_rgba(249,115,22,0.06)]
                          transition-all duration-300 overflow-hidden"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -70,18 +70,18 @@ export default function Skills() {
               {/* Large background number */}
               <span
                 className="absolute top-3 right-5 font-black text-[5.5rem] leading-none select-none pointer-events-none"
-                style={{ color: 'rgba(0,245,255,0.035)' }}
+                style={{ color: 'rgba(249,115,22,0.04)' }}
               >
                 {cat.num}
               </span>
 
               {/* Category header */}
               <div className="mb-6">
-                <p className="font-mono text-[0.68rem] text-neon-cyan/60 tracking-[0.25em] uppercase mb-1">
+                <p className="font-mono text-[0.68rem] text-accent/60 tracking-[0.25em] uppercase mb-1">
                   {cat.sub}
                 </p>
                 <h3 className="text-xl font-bold text-slate-100">{cat.title}</h3>
-                <div className="mt-3 h-px bg-gradient-to-r from-neon-cyan/20 to-transparent" />
+                <div className="mt-3 h-px bg-gradient-to-r from-accent/20 to-transparent" />
               </div>
 
               {/* Tech chips */}
@@ -90,8 +90,8 @@ export default function Skills() {
                   <motion.span
                     key={item}
                     className="px-3 py-1.5 rounded-lg font-mono text-[0.72rem]
-                               bg-white/[0.04] border border-white/8 text-slate-400
-                               hover:bg-neon-cyan/10 hover:border-neon-cyan/25 hover:text-neon-cyan
+                               bg-white/[0.04] border border-white/[0.07] text-slate-400
+                               hover:bg-accent/10 hover:border-accent/25 hover:text-accent
                                hover:-translate-y-0.5 transition-all duration-200 cursor-default"
                     initial={{ opacity: 0, scale: 0.85 }}
                     whileInView={{ opacity: 1, scale: 1 }}

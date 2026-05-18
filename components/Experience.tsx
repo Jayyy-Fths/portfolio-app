@@ -42,17 +42,17 @@ export default function Experience() {
           viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.6 }}
         >
-          <p className="font-mono text-xs text-neon-cyan tracking-[0.3em] uppercase mb-2">// 04. Experience</p>
+          <p className="font-mono text-xs text-accent tracking-[0.3em] uppercase mb-2">// 04. Experience</p>
           <h2 className="text-4xl md:text-5xl font-bold text-slate-100">
-            Where I&apos;ve <span className="text-neon-cyan">Worked</span>
+            Where I&apos;ve <span className="text-accent">Worked</span>
           </h2>
-          <div className="w-14 h-0.5 bg-gradient-to-r from-neon-cyan to-neon-purple mx-auto mt-4 rounded" />
+          <div className="w-14 h-0.5 bg-gradient-to-r from-accent to-accent-warm mx-auto mt-4 rounded" />
         </motion.div>
 
         <div className="relative max-w-2xl mx-auto">
           {/* Vertical timeline line */}
           <div className="absolute left-[19px] top-3 bottom-3 w-px"
-               style={{ background: 'linear-gradient(to bottom, #00f5ff40, #a855f740, transparent)' }} />
+               style={{ background: 'linear-gradient(to bottom, rgba(249,115,22,0.4), rgba(251,191,36,0.4), transparent)' }} />
 
           {experience.map((job, i) => (
             <motion.div
@@ -66,9 +66,9 @@ export default function Experience() {
               {/* Company badge / dot */}
               <div className="relative shrink-0 mt-1">
                 <div className="w-10 h-10 rounded-xl flex items-center justify-center
-                                font-mono text-[0.65rem] font-bold text-neon-cyan
-                                bg-bg-primary border border-neon-cyan/25
-                                shadow-[0_0_14px_rgba(0,245,255,0.15)]">
+                                font-mono text-[0.65rem] font-bold text-accent
+                                bg-bg-primary border border-accent/25
+                                shadow-[0_0_14px_rgba(249,115,22,0.15)]">
                   {job.badge}
                 </div>
               </div>
@@ -76,7 +76,7 @@ export default function Experience() {
               {/* Content */}
               <div className="flex-1 pb-10 last:pb-0">
                 <div className="flex flex-wrap items-center gap-3 mb-1">
-                  <p className="font-mono text-xs text-neon-cyan/70 tracking-wider">{job.date}</p>
+                  <p className="font-mono text-xs text-accent/70 tracking-wider">{job.date}</p>
                 </div>
                 <h3 className="text-lg font-semibold text-slate-100 leading-snug">{job.role}</h3>
                 <p className="text-sm font-medium text-slate-500 mb-3">{job.company}</p>
@@ -86,7 +86,7 @@ export default function Experience() {
                     <span
                       key={tag}
                       className="font-mono text-[0.65rem] px-2 py-0.5 rounded
-                                 bg-white/[0.04] border border-white/8 text-slate-500"
+                                 bg-white/[0.04] border border-white/[0.07] text-slate-500"
                     >
                       {tag}
                     </span>

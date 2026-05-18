@@ -21,8 +21,8 @@ function Counter({ target, suffix }: { target: number; suffix: string }) {
   }, [inView, target])
 
   return (
-    <span ref={ref} className="text-3xl font-black font-mono text-neon-cyan"
-          style={{ textShadow: '0 0 20px rgba(0,245,255,0.35)' }}>
+    <span ref={ref} className="text-3xl font-black font-mono text-accent"
+          style={{ textShadow: '0 0 20px rgba(249,115,22,0.35)' }}>
       {count}{suffix}
     </span>
   )
@@ -49,11 +49,11 @@ const codeLines = [
 ]
 
 const tokenColor: Record<string, string> = {
-  keyword:  '#a855f7',
+  keyword:  '#f97316',
   name:     '#e2e8f0',
   key:      '#94a3b8',
-  str:      '#34d399',
-  emerald:  '#00f5ff',
+  str:      '#fbbf24',
+  emerald:  '#34d399',
   bracket:  '#94a3b8',
   plain:    '#64748b',
 }
@@ -71,20 +71,20 @@ export default function About() {
           viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.6 }}
         >
-          <p className="font-mono text-xs text-neon-cyan tracking-[0.3em] uppercase mb-2">// 01. About Me</p>
+          <p className="font-mono text-xs text-accent tracking-[0.3em] uppercase mb-2">// 01. About Me</p>
           <h2 className="text-4xl md:text-5xl font-bold text-slate-100">
-            Who I <span className="text-neon-cyan">Am</span>
+            Who I <span className="text-accent">Am</span>
           </h2>
-          <div className="w-14 h-0.5 bg-gradient-to-r from-neon-cyan to-neon-purple mx-auto mt-4 rounded" />
+          <div className="w-14 h-0.5 bg-gradient-to-r from-accent to-accent-warm mx-auto mt-4 rounded" />
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-12 items-start">
 
           {/* Terminal code card */}
           <motion.div
-            className="rounded-2xl overflow-hidden border border-white/8
+            className="rounded-2xl overflow-hidden border border-white/[0.07]
                        bg-bg-primary/80 backdrop-blur-md
-                       hover:border-neon-cyan/20 transition-colors duration-300"
+                       hover:border-accent/20 transition-colors duration-300"
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: '-80px' }}
@@ -153,9 +153,9 @@ export default function About() {
               {stats.map((s, i) => (
                 <motion.div
                   key={s.label}
-                  className="rounded-xl p-5 text-center border border-white/6 bg-bg-primary/60
-                             hover:border-neon-cyan/25 hover:-translate-y-0.5
-                             hover:shadow-[0_8px_30px_rgba(0,245,255,0.06)]
+                  className="rounded-xl p-5 text-center border border-white/[0.07] bg-bg-primary/60
+                             hover:border-accent/25 hover:-translate-y-0.5
+                             hover:shadow-[0_8px_30px_rgba(249,115,22,0.08)]
                              transition-all duration-300"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
