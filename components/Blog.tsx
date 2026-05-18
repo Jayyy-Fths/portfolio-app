@@ -49,7 +49,7 @@ export default function Blog() {
           viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.6 }}
         >
-          <p className="font-mono text-xs text-accent tracking-[0.3em] uppercase mb-2">// 06. Articles</p>
+          <p className="font-mono text-xs text-accent tracking-[0.3em] uppercase mb-2">{'// 06. Articles'}</p>
           <h2 className="text-4xl md:text-5xl font-bold text-slate-100">
             Latest <span className="text-accent">Writing</span>
           </h2>

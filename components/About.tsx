@@ -71,7 +71,7 @@ export default function About() {
           viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.6 }}
         >
-          <p className="font-mono text-xs text-accent tracking-[0.3em] uppercase mb-2">// 01. About Me</p>
+          <p className="font-mono text-xs text-accent tracking-[0.3em] uppercase mb-2">{'// 01. About Me'}</p>
           <h2 className="text-4xl md:text-5xl font-bold text-slate-100">
             Who I <span className="text-accent">Am</span>
           </h2>

@@ -42,7 +42,7 @@ export default function Experience() {
           viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.6 }}
         >
-          <p className="font-mono text-xs text-accent tracking-[0.3em] uppercase mb-2">// 04. Experience</p>
+          <p className="font-mono text-xs text-accent tracking-[0.3em] uppercase mb-2">{'// 04. Experience'}</p>
           <h2 className="text-4xl md:text-5xl font-bold text-slate-100">
             Where I&apos;ve <span className="text-accent">Worked</span>
           </h2>

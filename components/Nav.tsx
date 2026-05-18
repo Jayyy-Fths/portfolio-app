@@ -15,14 +15,14 @@ const links = [
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen]         = useState(false)
-  const [theme, setTheme]       = useState<'dark' | 'light'>('dark')
+  const [theme, setTheme] = useState<'dark' | 'light'>(() => {
+    if (typeof window === 'undefined') return 'dark'
+    return (localStorage.getItem('theme') as 'dark' | 'light') ?? 'dark'
+  })
 
   useEffect(() => {
-    const stored = localStorage.getItem('theme') as 'dark' | 'light' | null
-    const initial = stored ?? 'dark'
-    setTheme(initial)
-    document.documentElement.setAttribute('data-theme', initial)
-  }, [])
+    document.documentElement.setAttribute('data-theme', theme)
+  }, [theme])
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50)

@@ -1,9 +1,9 @@
 import type { Metadata } from 'next'
 import { Space_Grotesk, JetBrains_Mono } from 'next/font/google'
 import './globals.css'
-import Cursor from '../components/Cursor'
-import ScrollProgress from '../components/ScrollProgress'
-import ConvexClientProvider from './ConvexClientProvider'
+import Cursor from '@/components/Cursor'
+import ScrollProgress from '@/components/ScrollProgress'
+import ConvexClientProvider from '@/app/ConvexClientProvider'
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ['latin'],

@@ -48,7 +48,7 @@ export default function Skills() {
           viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.6 }}
         >
-          <p className="font-mono text-xs text-accent tracking-[0.3em] uppercase mb-2">// 02. Skills</p>
+          <p className="font-mono text-xs text-accent tracking-[0.3em] uppercase mb-2">{'// 02. Skills'}</p>
           <h2 className="text-4xl md:text-5xl font-bold text-slate-100">
             Tech <span className="text-accent">Stack</span>
           </h2>

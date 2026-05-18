@@ -33,7 +33,7 @@ export default function Contact() {
           viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.6 }}
         >
-          <p className="font-mono text-xs text-accent tracking-[0.3em] uppercase mb-2">// 07. Contact</p>
+          <p className="font-mono text-xs text-accent tracking-[0.3em] uppercase mb-2">{'// 07. Contact'}</p>
           <h2 className="text-4xl md:text-5xl font-bold text-slate-100">
             Let&apos;s <span className="text-accent">Build</span> Together
           </h2>
