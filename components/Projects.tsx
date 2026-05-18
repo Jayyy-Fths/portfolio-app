@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { FiGithub, FiExternalLink } from 'react-icons/fi'
-import { FaDatabase, FaShieldAlt, FaChartLine, FaRobot } from 'react-icons/fa'
+import { FaShieldAlt, FaCloud, FaGamepad, FaBook, FaTrophy } from 'react-icons/fa'
 import type { IconType } from 'react-icons'
 
 interface Project {
@@ -18,38 +18,38 @@ interface Project {
 const projects: Project[] = [
   {
     num:    '01',
-    icon:   FaDatabase,
-    title:  'QuantumDB Visualizer',
-    desc:   'Interactive schema visualizer with query performance analysis, index suggestions, and slow-query detection. Supports PostgreSQL, MySQL, and MongoDB.',
-    stack:  ['Vue 3', 'Python', 'FastAPI', 'D3.js'],
-    github: '#',
+    icon:   FaShieldAlt,
+    title:  'Army National Guard Website',
+    desc:   'A TypeScript-powered website built for the Army National Guard, featuring a modern design and clean, accessible layout.',
+    stack:  ['TypeScript', 'HTML', 'CSS'],
+    github: 'https://github.com/Jayyy-Fths/Armynationalguardwebsite',
     live:   '#',
   },
   {
     num:    '02',
-    icon:   FaShieldAlt,
-    title:  'ShieldAuth Microservice',
-    desc:   'Zero-dependency OAuth 2.0 / JWT auth microservice with role-based access control, refresh token rotation, and full audit logging.',
-    stack:  ['Node.js', 'Redis', 'Docker', 'JWT'],
-    github: '#',
+    icon:   FaCloud,
+    title:  'Weather App',
+    desc:   'A JavaScript weather application that fetches and displays current conditions and forecasts with a clean UI.',
+    stack:  ['JavaScript', 'HTML', 'CSS'],
+    github: 'https://github.com/Jayyy-Fths/Weather',
     live:   '#',
   },
   {
     num:    '03',
-    icon:   FaChartLine,
-    title:  'PulseMetrics Dashboard',
-    desc:   'Real-time analytics with customizable widgets, funnel analysis, cohort tracking, and AI-generated traffic summaries.',
-    stack:  ['Next.js', 'MongoDB', 'D3.js', 'Tailwind'],
-    github: '#',
+    icon:   FaGamepad,
+    title:  "Five Nights at Frank's",
+    desc:   "A JavaScript horror survival game inspired by FNAF mechanics — built entirely in the browser with custom game logic.",
+    stack:  ['JavaScript', 'HTML', 'CSS'],
+    github: 'https://github.com/Jayyy-Fths/Five-Nights-at-Frank-Gualteri-',
     live:   '#',
   },
   {
     num:    '04',
-    icon:   FaRobot,
-    title:  'DevGPT CLI Assistant',
-    desc:   'Terminal-based AI coding assistant. Reads your codebase, explains functions, suggests refactors, and generates boilerplate — without leaving the terminal.',
-    stack:  ['Python', 'Claude API', 'Rich', 'Click'],
-    github: '#',
+    icon:   FaBook,
+    title:  'Miyamoto Musashi — The Legend',
+    desc:   "Comprehensive website dedicated to the life, philosophy, and legacy of Japan's most famous swordsman. Covers his duels, art, and the Book of Five Rings.",
+    stack:  ['HTML', 'CSS', 'JavaScript'],
+    github: 'https://github.com/Jayyy-Fths/Feb-Project',
     live:   '#',
   },
 ]
@@ -150,11 +150,11 @@ function ProjectCard({ project, delay }: { project: Project; delay: number }) {
           <Icon />
         </div>
         <div className="flex gap-3 text-slate-600">
-          <a href={project.github}
+          <a href={project.github} target="_blank" rel="noopener noreferrer"
              className="hover:text-neon-cyan hover:-translate-y-0.5 transition-all duration-200">
             <FiGithub size={17} />
           </a>
-          <a href={project.live}
+          <a href={project.live} target="_blank" rel="noopener noreferrer"
              className="hover:text-neon-cyan hover:-translate-y-0.5 transition-all duration-200">
             <FiExternalLink size={17} />
           </a>
@@ -228,24 +228,23 @@ export default function Projects() {
               <div className="inline-flex items-center gap-2 mb-3">
                 <span className="w-1.5 h-1.5 rounded-full bg-neon-cyan" />
                 <p className="font-mono text-[0.68rem] text-neon-cyan tracking-[0.2em] uppercase">
-                  Featured Project
+                  Featured Project — Competition Winner
                 </p>
               </div>
               <h3 className="text-2xl font-bold text-slate-100 mb-3">
-                NexaFlow — Real-Time Collab
+                Fank — Coding Competition Winner
               </h3>
               <p className="text-sm text-slate-500 leading-relaxed mb-5">
-                Full-stack real-time collaboration platform: live document editing, team chat,
-                and presence indicators. Handles 10k+ concurrent WebSocket connections with
-                sub-50ms latency.
+                A webpage built with friends during a coding competition where we won a category.
+                Designed and shipped under time pressure in a real competitive environment.
               </p>
               <div className="flex flex-wrap gap-2 mb-6">
-                {['React', 'Node.js', 'Socket.io', 'PostgreSQL', 'Redis', 'Docker'].map(t => (
+                {['HTML', 'CSS', 'JavaScript'].map(t => (
                   <Tag key={t} label={t} variant="cyan" />
                 ))}
               </div>
               <div className="flex gap-5 text-sm text-slate-500">
-                <a href="#" className="flex items-center gap-1.5 hover:text-neon-cyan transition-colors duration-200">
+                <a href="https://github.com/Jayyy-Fths/Fank" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 hover:text-neon-cyan transition-colors duration-200">
                   <FiGithub size={15} /> Source
                 </a>
                 <a href="#" className="flex items-center gap-1.5 hover:text-neon-cyan transition-colors duration-200">
