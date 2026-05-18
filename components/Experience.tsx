@@ -7,19 +7,25 @@ const experience = [
     date:    '2023 — Present',
     role:    'Senior Full-Stack Developer',
     company: 'TechForward Inc.',
+    badge:   'TF',
     desc:    'Leading a 4-person team building a B2B SaaS platform. Architected a microservices migration from a 200k-line monolith, reducing deploy times by 70% and improving uptime to 99.97%.',
+    tags:    ['React', 'Node.js', 'Kubernetes', 'PostgreSQL'],
   },
   {
     date:    '2021 — 2023',
     role:    'Full-Stack Developer',
     company: 'NovaBuild Digital Agency',
+    badge:   'NB',
     desc:    'Delivered 12+ client projects from wireframe to production. Specialized in performance — consistently hitting 95+ Lighthouse scores and sub-2s LCP across all projects.',
+    tags:    ['Next.js', 'TypeScript', 'Tailwind', 'AWS'],
   },
   {
     date:    '2020 — 2021',
     role:    'Frontend Developer',
     company: 'OpenStack Labs',
+    badge:   'OS',
     desc:    'Started as a UI intern, promoted to junior developer within 5 months. Built the company design system from scratch — adopted across 8 internal products.',
+    tags:    ['React', 'CSS', 'Figma', 'Storybook'],
   },
 ]
 
@@ -44,26 +50,49 @@ export default function Experience() {
         </motion.div>
 
         <div className="relative max-w-2xl mx-auto">
-          {/* Vertical line */}
-          <div className="absolute left-0 top-0 bottom-0 w-px bg-gradient-to-b from-neon-cyan via-neon-purple to-transparent" />
+          {/* Vertical timeline line */}
+          <div className="absolute left-[19px] top-3 bottom-3 w-px"
+               style={{ background: 'linear-gradient(to bottom, #00f5ff40, #a855f740, transparent)' }} />
 
           {experience.map((job, i) => (
             <motion.div
               key={job.company}
-              className="relative pl-10 mb-12 last:mb-0"
+              className="relative flex gap-6 mb-10 last:mb-0"
               initial={{ opacity: 0, x: -25 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: '-60px' }}
-              transition={{ duration: 0.6, delay: i * 0.1 }}
+              transition={{ duration: 0.6, delay: i * 0.12 }}
             >
-              {/* Dot */}
-              <span className="absolute left-[-5px] top-1 w-2.5 h-2.5 rounded-full bg-bg-primary
-                               border-2 border-neon-cyan shadow-[0_0_10px_rgba(0,245,255,0.5)]" />
+              {/* Company badge / dot */}
+              <div className="relative shrink-0 mt-1">
+                <div className="w-10 h-10 rounded-xl flex items-center justify-center
+                                font-mono text-[0.65rem] font-bold text-neon-cyan
+                                bg-bg-primary border border-neon-cyan/25
+                                shadow-[0_0_14px_rgba(0,245,255,0.15)]">
+                  {job.badge}
+                </div>
+              </div>
 
-              <p className="font-mono text-xs text-neon-cyan tracking-wider mb-1">{job.date}</p>
-              <h3 className="text-lg font-semibold text-slate-100">{job.role}</h3>
-              <p className="text-sm text-slate-500 mb-2">{job.company}</p>
-              <p className="text-sm text-slate-400 leading-relaxed">{job.desc}</p>
+              {/* Content */}
+              <div className="flex-1 pb-10 last:pb-0">
+                <div className="flex flex-wrap items-center gap-3 mb-1">
+                  <p className="font-mono text-xs text-neon-cyan/70 tracking-wider">{job.date}</p>
+                </div>
+                <h3 className="text-lg font-semibold text-slate-100 leading-snug">{job.role}</h3>
+                <p className="text-sm font-medium text-slate-500 mb-3">{job.company}</p>
+                <p className="text-sm text-slate-400 leading-relaxed mb-4">{job.desc}</p>
+                <div className="flex flex-wrap gap-2">
+                  {job.tags.map(tag => (
+                    <span
+                      key={tag}
+                      className="font-mono text-[0.65rem] px-2 py-0.5 rounded
+                                 bg-white/[0.04] border border-white/8 text-slate-500"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
             </motion.div>
           ))}
         </div>

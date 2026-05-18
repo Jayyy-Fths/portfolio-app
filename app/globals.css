@@ -1,10 +1,11 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-bg-primary:    #020408;
-  --color-bg-secondary:  #0a0e1a;
-  --color-neon-cyan:     #00f5ff;
-  --color-neon-purple:   #a855f7;
+  --color-bg-primary:      #020408;
+  --color-bg-secondary:    #0a0e1a;
+  --color-neon-cyan:       #00f5ff;
+  --color-neon-purple:     #a855f7;
+  --color-neon-emerald:    #34d399;
 
   --font-sans: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
@@ -16,9 +17,12 @@ html {
   scrollbar-width: thin;
   scrollbar-color: #00f5ff #0a0e1a;
 }
-::-webkit-scrollbar       { width: 4px; }
+::-webkit-scrollbar       { width: 6px; }
 ::-webkit-scrollbar-track { background: #020408; }
-::-webkit-scrollbar-thumb { background: #00f5ff; border-radius: 2px; }
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #00f5ff, #a855f7);
+  border-radius: 3px;
+}
 
 body {
   cursor: none;
@@ -26,45 +30,22 @@ body {
   background: #020408;
 }
 
-/* ── Glitch effect ── */
-.glitch { position: relative; }
-.glitch::before,
-.glitch::after {
-  content: attr(data-text);
-  position: absolute;
-  inset: 0;
-  width: 100%;
-}
-.glitch::before {
-  color: #a855f7;
-  clip-path: polygon(0 0, 100% 0, 100% 40%, 0 40%);
-  animation: glitch1 4s infinite;
-}
-.glitch::after {
-  color: #00f5ff;
-  clip-path: polygon(0 60%, 100% 60%, 100% 100%, 0 100%);
-  animation: glitch2 4s infinite;
+/* ── Gradient text ── */
+.gradient-text {
+  background: linear-gradient(135deg, #00f5ff 0%, #a855f7 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-@keyframes glitch1 {
-  0%, 90%, 100% { transform: translateX(0);    opacity: 0; }
-  92%            { transform: translateX(-3px); opacity: 0.8; }
-  94%            { transform: translateX(3px);  opacity: 0.8; }
-  96%            { transform: translateX(0);    opacity: 0; }
-}
-@keyframes glitch2 {
-  0%, 90%, 100% { transform: translateX(0);    opacity: 0; }
-  93%            { transform: translateX(3px);  opacity: 0.8; }
-  95%            { transform: translateX(-3px); opacity: 0.8; }
-  97%            { transform: translateX(0);    opacity: 0; }
-}
-
+/* ── Blink ── */
 @keyframes blink {
   0%, 100% { opacity: 1; }
   50%       { opacity: 0; }
 }
 .animate-blink { animation: blink 1s infinite; }
 
+/* ── Scroll line ── */
 @keyframes scrollLine {
   0%   { transform: scaleY(0); transform-origin: top;    opacity: 1; }
   50%  { transform: scaleY(1); transform-origin: top;    opacity: 1; }
@@ -72,6 +53,38 @@ body {
   100% { transform: scaleY(0); transform-origin: bottom; opacity: 0; }
 }
 .animate-scroll-line { animation: scrollLine 2s infinite; }
+
+/* ── Float ── */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-7px); }
+}
+.animate-float { animation: float 3.5s ease-in-out infinite; }
+
+/* ── Ping (available badge) ── */
+@keyframes ping-slow {
+  0%   { transform: scale(1);   opacity: 0.7; }
+  80%  { transform: scale(2.2); opacity: 0;   }
+  100% { transform: scale(2.2); opacity: 0;   }
+}
+.animate-ping-slow { animation: ping-slow 2s cubic-bezier(0, 0, 0.2, 1) infinite; }
+
+/* ── Shimmer ── */
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position:  200% center; }
+}
+.shimmer-border {
+  background: linear-gradient(
+    90deg,
+    rgba(0,245,255,0.05) 0%,
+    rgba(0,245,255,0.2) 30%,
+    rgba(168,85,247,0.2) 70%,
+    rgba(168,85,247,0.05) 100%
+  );
+  background-size: 200% auto;
+  animation: shimmer 4s linear infinite;
+}
 
 /* ── Autofill reset ── */
 input:-webkit-autofill,

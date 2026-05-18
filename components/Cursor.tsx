@@ -16,8 +16,8 @@ export default function Cursor() {
         dotRef.current.style.left = mx + 'px'
         dotRef.current.style.top  = my + 'px'
       }
-      rx += (mx - rx) * 0.12
-      ry += (my - ry) * 0.12
+      rx += (mx - rx) * 0.10
+      ry += (my - ry) * 0.10
       if (ringRef.current) {
         ringRef.current.style.left = rx + 'px'
         ringRef.current.style.top  = ry + 'px'
@@ -26,12 +26,12 @@ export default function Cursor() {
     }
 
     const expand = () => {
-      dotRef.current?.classList.add('scale-150')
-      ringRef.current?.classList.add('!w-12', '!h-12', '!border-neon-cyan')
+      dotRef.current?.classList.add('!opacity-0')
+      ringRef.current?.classList.add('!w-14', '!h-14', '!border-neon-cyan/70', '!bg-neon-cyan/5')
     }
     const shrink = () => {
-      dotRef.current?.classList.remove('scale-150')
-      ringRef.current?.classList.remove('!w-12', '!h-12', '!border-neon-cyan')
+      dotRef.current?.classList.remove('!opacity-0')
+      ringRef.current?.classList.remove('!w-14', '!h-14', '!border-neon-cyan/70', '!bg-neon-cyan/5')
     }
 
     document.addEventListener('mousemove', onMove)
@@ -49,17 +49,19 @@ export default function Cursor() {
 
   return (
     <>
+      {/* Dot — instant, sharp */}
       <div
         ref={dotRef}
-        className="fixed z-[9999] w-2 h-2 -translate-x-1/2 -translate-y-1/2 rounded-full
-                   bg-neon-cyan pointer-events-none transition-transform duration-100
-                   shadow-[0_0_10px_#00f5ff,0_0_20px_rgba(0,245,255,0.4)]"
+        className="fixed z-[9999] w-1.5 h-1.5 -translate-x-1/2 -translate-y-1/2 rounded-full
+                   bg-neon-cyan pointer-events-none transition-opacity duration-150"
+        style={{ boxShadow: '0 0 8px #00f5ff, 0 0 16px rgba(0,245,255,0.3)' }}
       />
+      {/* Ring — lagged, eased */}
       <div
         ref={ringRef}
         className="fixed z-[9998] w-8 h-8 -translate-x-1/2 -translate-y-1/2 rounded-full
-                   border border-neon-cyan/50 pointer-events-none
-                   transition-[width,height,border-color] duration-300"
+                   border border-neon-cyan/35 pointer-events-none
+                   transition-[width,height,border-color,background-color] duration-250"
       />
     </>
   )

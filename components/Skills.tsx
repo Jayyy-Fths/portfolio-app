@@ -2,59 +2,38 @@
 
 import { motion } from 'framer-motion'
 
-interface Skill { name: string; pct: number }
-interface Category { title: string; skills: Skill[]; tags: string[] }
-
-const categories: Category[] = [
+const categories = [
   {
+    num:   '01',
     title: 'Frontend',
-    skills: [
-      { name: 'React / Next.js',  pct: 92 },
-      { name: 'TypeScript',       pct: 88 },
-      { name: 'CSS / Tailwind',   pct: 95 },
+    sub:   'Crafting interfaces',
+    items: [
+      'React', 'Next.js', 'TypeScript', 'Tailwind CSS',
+      'Framer Motion', 'Vue 3', 'Svelte', 'Three.js',
+      'CSS / SASS', 'Figma',
     ],
-    tags: ['Vue 3', 'Svelte', 'Framer Motion', 'Three.js'],
   },
   {
+    num:   '02',
     title: 'Backend',
-    skills: [
-      { name: 'Node.js / Express', pct: 90 },
-      { name: 'Python / FastAPI',  pct: 82 },
-      { name: 'REST & GraphQL',    pct: 87 },
+    sub:   'Powering systems',
+    items: [
+      'Node.js', 'Express', 'Python', 'FastAPI',
+      'tRPC', 'GraphQL', 'REST APIs', 'WebSockets',
+      'Prisma', 'Auth.js',
     ],
-    tags: ['WebSockets', 'tRPC', 'Prisma', 'Auth.js'],
   },
   {
+    num:   '03',
     title: 'Infrastructure',
-    skills: [
-      { name: 'PostgreSQL / MongoDB',    pct: 85 },
-      { name: 'Docker / CI/CD',          pct: 80 },
-      { name: 'AWS / Vercel / Supabase', pct: 78 },
+    sub:   'Scaling reliably',
+    items: [
+      'PostgreSQL', 'MongoDB', 'Redis', 'Docker',
+      'AWS', 'Vercel', 'Supabase', 'GitHub Actions',
+      'Kubernetes', 'Terraform',
     ],
-    tags: ['Redis', 'Kubernetes', 'GitHub Actions', 'Terraform'],
   },
 ]
-
-function SkillBar({ name, pct, delay }: Skill & { delay: number }) {
-  return (
-    <div className="mb-4">
-      <div className="flex justify-between mb-1.5">
-        <span className="text-sm text-slate-300">{name}</span>
-        <span className="font-mono text-xs text-neon-cyan">{pct}%</span>
-      </div>
-      <div className="h-1 bg-white/5 rounded-full overflow-hidden">
-        <motion.div
-          className="h-full rounded-full bg-gradient-to-r from-neon-cyan to-neon-purple
-                     shadow-[0_0_8px_rgba(0,245,255,0.4)]"
-          initial={{ width: 0 }}
-          whileInView={{ width: `${pct}%` }}
-          viewport={{ once: true }}
-          transition={{ duration: 1.2, delay, ease: [0.4, 0, 0.2, 1] }}
-        />
-      </div>
-    </div>
-  )
-}
 
 export default function Skills() {
   return (
@@ -80,34 +59,47 @@ export default function Skills() {
           {categories.map((cat, ci) => (
             <motion.div
               key={cat.title}
-              className="bg-bg-secondary/60 backdrop-blur-md border border-white/8 rounded-2xl p-7
-                         hover:border-neon-cyan/25 hover:shadow-[0_0_30px_rgba(0,245,255,0.04)]
-                         transition-all duration-300"
+              className="relative bg-bg-secondary/60 backdrop-blur-md border border-white/8 rounded-2xl p-7
+                         hover:border-neon-cyan/20 hover:shadow-[0_0_40px_rgba(0,245,255,0.04)]
+                         transition-all duration-300 overflow-hidden"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-60px' }}
               transition={{ duration: 0.6, delay: ci * 0.1 }}
             >
-              <p className="font-mono text-[0.7rem] text-neon-cyan tracking-[0.2em] uppercase
-                            pb-3 mb-5 border-b border-white/8">
-                {cat.title}
-              </p>
+              {/* Large background number */}
+              <span
+                className="absolute top-3 right-5 font-black text-[5.5rem] leading-none select-none pointer-events-none"
+                style={{ color: 'rgba(0,245,255,0.035)' }}
+              >
+                {cat.num}
+              </span>
 
-              {cat.skills.map((s, si) => (
-                <SkillBar key={s.name} {...s} delay={si * 0.1 + ci * 0.05} />
-              ))}
+              {/* Category header */}
+              <div className="mb-6">
+                <p className="font-mono text-[0.68rem] text-neon-cyan/60 tracking-[0.25em] uppercase mb-1">
+                  {cat.sub}
+                </p>
+                <h3 className="text-xl font-bold text-slate-100">{cat.title}</h3>
+                <div className="mt-3 h-px bg-gradient-to-r from-neon-cyan/20 to-transparent" />
+              </div>
 
-              <div className="flex flex-wrap gap-2 mt-4">
-                {cat.tags.map(tag => (
-                  <span
-                    key={tag}
-                    className="font-mono text-[0.7rem] px-2.5 py-1 rounded-full
-                               bg-neon-cyan/10 text-neon-cyan border border-neon-cyan/20
-                               hover:bg-neon-cyan/20 hover:-translate-y-0.5
-                               transition-all duration-200"
+              {/* Tech chips */}
+              <div className="flex flex-wrap gap-2">
+                {cat.items.map((item, ii) => (
+                  <motion.span
+                    key={item}
+                    className="px-3 py-1.5 rounded-lg font-mono text-[0.72rem]
+                               bg-white/[0.04] border border-white/8 text-slate-400
+                               hover:bg-neon-cyan/10 hover:border-neon-cyan/25 hover:text-neon-cyan
+                               hover:-translate-y-0.5 transition-all duration-200 cursor-default"
+                    initial={{ opacity: 0, scale: 0.85 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.3, delay: ci * 0.08 + ii * 0.04 }}
                   >
-                    {tag}
-                  </span>
+                    {item}
+                  </motion.span>
                 ))}
               </div>
             </motion.div>
